@@ -24,17 +24,20 @@
         .section-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e0e0e0; margin-bottom: 25px; }
         .section-box h2 { margin-top: 0; color: #1a237e; font-size: 22px; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; }
 
-        /* 시뮬레이션 캔버스 디자인 */
+        /* 시뮬레이션 캔버스 */
         .canvas-container { text-align: center; background: #111; padding: 15px; border-radius: 8px; margin: 15px 0; }
         canvas { background: #1a1a1a; border: 2px solid #333; border-radius: 4px; cursor: crosshair; }
         
-        /* 그래프 다이어그램 디자인 */
+        /* 다이어그램 */
         .diagram-container { display: flex; justify-content: center; align-items: center; background: #fafafa; border: 1px dashed #b0bec5; border-radius: 8px; padding: 20px; margin: 15px 0; min-height: 200px; position: relative; }
         .axis { position: absolute; background: #333; }
         .axis-x { width: 80%; height: 2px; bottom: 40px; left: 10%; }
         .axis-y { width: 2px; height: 70%; bottom: 40px; left: 15%; }
         .graph-curve { position: absolute; width: 65%; height: 50%; bottom: 42px; left: 15%; border-bottom-right-radius: 100%; border: 3px solid #ff1744; border-top: none; border-left: none; }
         .label { position: absolute; font-size: 14px; font-weight: bold; }
+
+        /* 문제 텍스트 스타일 */
+        .problem-content { background-color: #f8f9fa; border-left: 4px solid #1a237e; padding: 15px; margin: 15px 0; font-size: 16px; line-height: 1.8; border-radius: 0 8px 8px 0; }
 
         .btn { background: #1a237e; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; }
         .btn:hover { background: #0d47a1; }
@@ -63,8 +66,7 @@
         </div>
 
         <div class="section-box">
-            <h2>📊 Unit 1: Kinematics Motion Diagram</h2>
-            <p>어제 다뤘던 MCQ 문제의 핵심 다이어그램입니다: 위치에 따른 속도 그래프 $v(x) = \frac{\alpha}{x}$ ($x > 0$)</p>
+            <h2>📊 Unit 1: Kinematics Problem & Motion Diagram</h2>
             
             <div class="diagram-container">
                 <div class="axis axis-x"></div>
@@ -75,7 +77,18 @@
                 <div class="label" style="bottom: 50px; left: 50%; color: #ff1744;">$v(x) = \frac{\alpha}{x}$</div>
                 <div class="label" style="bottom: 15px; left: 13%;">O</div>
             </div>
-            <p style="font-size: 14px; color: #666;">*입자가 원점에서 멀어질수록($x \to \infty$), 속도($v$)는 0에 수렴하며 감속합니다. 이때 가속도 공식은 $a(x) = -\frac{\alpha^2}{x^3}$이 됩니다.</p>
+
+            <div class="problem-content">
+                <strong>[Question]</strong><br>
+                A particle moves along the positive $x$-axis. Its velocity $v$ as a function of position $x$ is continuously given by the equation:
+                $$v(x) = \frac{\alpha}{x}$$
+                where $\alpha$ is a positive constant. Assuming the particle is located at $x = x_0$ at time $t = 0$, which of the following expressions correctly represents the <strong>acceleration</strong> of the particle as a function of position $x$?
+                <br><br>
+                <strong>[Derivation]:</strong><br>
+                Using the calculus chain rule for acceleration $a = v \frac{dv}{dx}$:<br>
+                1. Find the derivative: $\frac{dv}{dx} = -\frac{\alpha}{x^2}$<br>
+                2. Multiply by $v$: $a = \left(\frac{\alpha}{x}\right) \left(-\frac{\alpha}{x^2}\right) = -\frac{\alpha^2}{x^3}$
+            </div>
         </div>
     </div>
 
