@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AP Physics C: Kinematics</title>
+    
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+
+    <style>
+        body { font-family: sans-serif; line-height: 1.8; margin: 40px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .content { white-space: pre-wrap; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+Welcome to an elite-tier AP Physics C: Mechanics training module. To surpass standard prep materials like Barron’s and Princeton Review, we must move beyond rote formula memorization. The true test of AP Physics C mastery lies in **advanced calculus applications, boundary condition matching, and rigorous graphical transformations**.
+
+Below is a highly advanced Unit 1: Kinematics content pack designed to test the absolute limits of a student's calculus-based physics intuition.
+
+---
+
+### Part 1: Highly Tricky Multiple Choice Question (MCQ)
+
+**Question:**
+A particle moves along the positive $x$-axis. Its velocity $v$ as a function of position $x$ is continuously given by the equation $v(x) = \frac{\alpha}{x}$, where $\alpha$ is a positive constant. Assuming the particle is located at $x = x_0$ at time $t = 0$, which of the following expressions correctly represents the **acceleration** of the particle as a function of **time** $t$?
+
+(A) $a(t) = -\frac{\alpha}{t^2}$
+(B) $a(t) = -\frac{\alpha^2}{x^3}$
+(C) $a(t) = -\frac{\alpha^2}{(2\alpha t + x_0^2)^{3/2}}$
+(D) $a(t) = \frac{\alpha}{(2\alpha t + x_0^2)^{1/2}}$
+(E) $a(t) = -\frac{\alpha^2}{(\alpha t + x_0^2)^3}$
+
+##### **Expert Calculus Explanation & Distractor Analysis**
+**Correct Answer: (C)**
+
+This problem demands a multi-step calculus synthesis. You cannot simply take the derivative of $v$ with respect to $t$ directly because $v$ is given in terms of $x$. You must first find the acceleration as a function of position using the chain rule, and then solve the separable differential equation to map position $x$ to time $t$.
+
+**Step 1: Find acceleration as a function of position, $a(x)$.**
+Using the chain rule for velocity dependent on position:
+$$a = \frac{dv}{dt} = \frac{dv}{dx} \frac{dx}{dt} = v \frac{dv}{dx}$$
+
+Substitute $v(x) = \alpha x^{-1}$:
+$$a(x) = \left(\frac{\alpha}{x}\right) \left(-\alpha x^{-2}\right) = -\frac{\alpha^2}{x^3}$$
+*(Note: If the question asked for $a(x)$, (B) would be correct. But we need $a(t)$).*
+
+**Step 2: Solve the differential equation to find $x(t)$.**
+Start with the definition of velocity:
+$$v = \frac{dx}{dt} = \frac{\alpha}{x}$$
+
+Separate the variables and integrate from $t=0$ to $t$:
+$$\int_{x_0}^{x} x \, dx = \int_{0}^{t} \alpha \, dt$$
+$$\frac{1}{2}x^2 - \frac{1}{2}x_0^2 = \alpha t$$
+$$x^2 = 2\alpha t + x_0^2 \implies x(t) = \sqrt{2\alpha t + x_0^2}$$
+
+**Step 3: Substitute $x(t)$ into $a(x)$ to find $a(t)$.**
+$$a(t) = -\frac{\alpha^2}{(x(t))^3} = -\frac{\alpha^2}{\left(\sqrt{2\alpha t + x_0^2}\right)^3} = -\frac{\alpha^2}{(2\alpha t + x_0^2)^{3/2}}$$
+
+---
+
+### Part 2: Free Response Question (FRQ)
+
+**Prompt:**
+An experimental maglev cart moves along a straight horizontal track. At $t = 0$, the cart passes the origin ($x = 0$) with an initial velocity of $v_0 = +4 \text{ m/s}$. The cart's acceleration $a(t)$ is recorded by onboard sensors and is perfectly modeled by the following piecewise function for the interval $0 \le t \le 5 \text{ s}$:
+$$a(t) = \begin{cases} 3t^2 & \text{for } 0 \le t \le 2 \\ 24 - 6t & \text{for } 2 < t \le 5 \end{cases}$$
+
+**Part (a)**
+Derive the complete piecewise function for the cart's velocity $v(t)$ for the interval $0 \le t \le 5 \text{ s}$. Then, determine the maximum velocity achieved by the cart during this entire 5-second interval.
+
+**Part (b)**
+Calculate the exact total displacement of the cart from $t = 0$ to $t = 5 \text{ s}$.
+
+**Part (c)**
+Conduct a precise graphical transformation analysis of the cart's motion:
+1. Mathematically determine the exact time $t$ at which the position-time graph $x(t)$ has a **point of inflection**.
+2. Analyze the acceleration-time graph $a(t)$ at exactly $t = 2 \text{ s}$. Based on the properties of $a(t)$, does the velocity-time graph $v(t)$ possess a sharp corner (cusp) at $t = 2 \text{ s}$?
+        </div>
+    </div>
+</body>
+</html>
