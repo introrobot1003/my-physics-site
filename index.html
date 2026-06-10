@@ -1,87 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>AP Physics C: Kinematics</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite AP Physics C Hub</title>
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-    
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
     </script>
-
     <style>
-        body { font-family: sans-serif; line-height: 1.8; margin: 40px; background-color: #f9f9f9; color: #333; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .content { white-space: pre-wrap; font-size: 16px; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
+        .navbar { background-color: #1a237e; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .navbar .logo { font-size: 20px; font-weight: bold; }
+        .navbar .menu a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .hero { background: linear-gradient(135deg, #1a237e, #0d47a1); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; }
+        .hero h1 { margin: 0 0 10px 0; font-size: 28px; }
+        .hero p { margin: 0; opacity: 0.9; }
+
+        .section-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e0e0e0; margin-bottom: 25px; }
+        .section-box h2 { margin-top: 0; color: #1a237e; font-size: 22px; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; }
+
+        /* 시뮬레이션 캔버스 디자인 */
+        .canvas-container { text-align: center; background: #111; padding: 15px; border-radius: 8px; margin: 15px 0; }
+        canvas { background: #1a1a1a; border: 2px solid #333; border-radius: 4px; cursor: crosshair; }
+        
+        /* 그래프 다이어그램 디자인 */
+        .diagram-container { display: flex; justify-content: center; align-items: center; background: #fafafa; border: 1px dashed #b0bec5; border-radius: 8px; padding: 20px; margin: 15px 0; min-height: 200px; position: relative; }
+        .axis { position: absolute; background: #333; }
+        .axis-x { width: 80%; height: 2px; bottom: 40px; left: 10%; }
+        .axis-y { width: 2px; height: 70%; bottom: 40px; left: 15%; }
+        .graph-curve { position: absolute; width: 65%; height: 50%; bottom: 42px; left: 15%; border-bottom-right-radius: 100%; border: 3px solid #ff1744; border-top: none; border-left: none; }
+        .label { position: absolute; font-size: 14px; font-weight: bold; }
+
+        .btn { background: #1a237e; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; }
+        .btn:hover { background: #0d47a1; }
     </style>
 </head>
 <body>
+
+    <div class="navbar">
+        <div class="logo">⚛️ Elite AP Physics C Hub</div>
+        <div class="menu"><a href="#">Home</a><a href="#">Problems</a><a href="#">Simulations</a></div>
+    </div>
+
     <div class="container">
-        <div class="content">
-Welcome to an elite-tier AP Physics C: Mechanics training module. To surpass standard prep materials like Barron’s and Princeton Review, we must move beyond rote formula memorization. The true test of AP Physics C mastery lies in **advanced calculus applications, boundary condition matching, and rigorous graphical transformations**.
+        <div class="hero">
+            <h1>AP Physics C: Mechanics Lab</h1>
+            <p>시뮬레이션과 모션 다이어그램을 통해 Calculus 기반 물리를 시각적으로 마스터합니다.</p>
+        </div>
 
-Below is a highly advanced Unit 1: Kinematics content pack designed to test the absolute limits of a student's calculus-based physics intuition.
+        <div class="section-box">
+            <h2>🕹️ Interactive 2D Kinematics Simulator</h2>
+            <p>마우스로 빨간 공을 클릭한 채 드래그해서 던져보세요! 중력($g=0.2$)과 바닥 충돌 계수($e=0.7$)가 실시간으로 연산됩니다.</p>
+            <div class="canvas-container">
+                <canvas id="simCanvas" width="800" height="300"></canvas>
+            </div>
+            <button class="btn" onclick="resetSim()">시뮬레이션 리셋</button>
+        </div>
 
----
-
-### Part 1: Highly Tricky Multiple Choice Question (MCQ)
-
-**Question:**
-A particle moves along the positive $x$-axis. Its velocity $v$ as a function of position $x$ is continuously given by the equation $v(x) = \frac{\alpha}{x}$, where $\alpha$ is a positive constant. Assuming the particle is located at $x = x_0$ at time $t = 0$, which of the following expressions correctly represents the **acceleration** of the particle as a function of **time** $t$?
-
-(A) $a(t) = -\frac{\alpha}{t^2}$
-(B) $a(t) = -\frac{\alpha^2}{x^3}$
-(C) $a(t) = -\frac{\alpha^2}{(2\alpha t + x_0^2)^{3/2}}$
-(D) $a(t) = \frac{\alpha}{(2\alpha t + x_0^2)^{1/2}}$
-(E) $a(t) = -\frac{\alpha^2}{(\alpha t + x_0^2)^3}$
-
-##### **Expert Calculus Explanation & Distractor Analysis**
-**Correct Answer: (C)**
-
-This problem demands a multi-step calculus synthesis. You cannot simply take the derivative of $v$ with respect to $t$ directly because $v$ is given in terms of $x$. You must first find the acceleration as a function of position using the chain rule, and then solve the separable differential equation to map position $x$ to time $t$.
-
-**Step 1: Find acceleration as a function of position, $a(x)$.**
-Using the chain rule for velocity dependent on position:
-$$a = \frac{dv}{dt} = \frac{dv}{dx} \frac{dx}{dt} = v \frac{dv}{dx}$$
-
-Substitute $v(x) = \alpha x^{-1}$:
-$$a(x) = \left(\frac{\alpha}{x}\right) \left(-\alpha x^{-2}\right) = -\frac{\alpha^2}{x^3}$$
-*(Note: If the question asked for $a(x)$, (B) would be correct. But we need $a(t)$).*
-
-**Step 2: Solve the differential equation to find $x(t)$.**
-Start with the definition of velocity:
-$$v = \frac{dx}{dt} = \frac{\alpha}{x}$$
-
-Separate the variables and integrate from $t=0$ to $t$:
-$$\int_{x_0}^{x} x \, dx = \int_{0}^{t} \alpha \, dt$$
-$$\frac{1}{2}x^2 - \frac{1}{2}x_0^2 = \alpha t$$
-$$x^2 = 2\alpha t + x_0^2 \implies x(t) = \sqrt{2\alpha t + x_0^2}$$
-
-**Step 3: Substitute $x(t)$ into $a(x)$ to find $a(t)$.**
-$$a(t) = -\frac{\alpha^2}{(x(t))^3} = -\frac{\alpha^2}{\left(\sqrt{2\alpha t + x_0^2}\right)^3} = -\frac{\alpha^2}{(2\alpha t + x_0^2)^{3/2}}$$
-
----
-
-### Part 2: Free Response Question (FRQ)
-
-**Prompt:**
-An experimental maglev cart moves along a straight horizontal track. At $t = 0$, the cart passes the origin ($x = 0$) with an initial velocity of $v_0 = +4 \text{ m/s}$. The cart's acceleration $a(t)$ is recorded by onboard sensors and is perfectly modeled by the following piecewise function for the interval $0 \le t \le 5 \text{ s}$:
-$$a(t) = \begin{cases} 3t^2 & \text{for } 0 \le t \le 2 \\ 24 - 6t & \text{for } 2 < t \le 5 \end{cases}$$
-
-**Part (a)**
-Derive the complete piecewise function for the cart's velocity $v(t)$ for the interval $0 \le t \le 5 \text{ s}$. Then, determine the maximum velocity achieved by the cart during this entire 5-second interval.
-
-**Part (b)**
-Calculate the exact total displacement of the cart from $t = 0$ to $t = 5 \text{ s}$.
-
-**Part (c)**
-Conduct a precise graphical transformation analysis of the cart's motion:
-1. Mathematically determine the exact time $t$ at which the position-time graph $x(t)$ has a **point of inflection**.
-2. Analyze the acceleration-time graph $a(t)$ at exactly $t = 2 \text{ s}$. Based on the properties of $a(t)$, does the velocity-time graph $v(t)$ possess a sharp corner (cusp) at $t = 2 \text{ s}$?
+        <div class="section-box">
+            <h2>📊 Unit 1: Kinematics Motion Diagram</h2>
+            <p>어제 다뤘던 MCQ 문제의 핵심 다이어그램입니다: 위치에 따른 속도 그래프 $v(x) = \frac{\alpha}{x}$ ($x > 0$)</p>
+            
+            <div class="diagram-container">
+                <div class="axis axis-x"></div>
+                <div class="axis axis-y"></div>
+                <div class="graph-curve"></div>
+                <div class="label" style="bottom: 15px; right: 10%;">Position ($x$)</div>
+                <div class="label" style="top: 20px; left: 18%;">Velocity ($v$)</div>
+                <div class="label" style="bottom: 50px; left: 50%; color: #ff1744;">$v(x) = \frac{\alpha}{x}$</div>
+                <div class="label" style="bottom: 15px; left: 13%;">O</div>
+            </div>
+            <p style="font-size: 14px; color: #666;">*입자가 원점에서 멀어질수록($x \to \infty$), 속도($v$)는 0에 수렴하며 감속합니다. 이때 가속도 공식은 $a(x) = -\frac{\alpha^2}{x^3}$이 됩니다.</p>
         </div>
     </div>
+
+    <script>
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+        let ball = { x: 150, y: 100, vx: 5, vy: 0, radius: 15, gravity: 0.2, bounce: 0.7, friction: 0.995 };
+        let isDragging = false;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#252525'; ctx.lineWidth = 1;
+            for(let i=0; i<canvas.width; i+=50) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, canvas.height); ctx.stroke(); }
+            for(let j=0; j<canvas.height; j+=50) { ctx.beginPath(); ctx.moveTo(0, j); ctx.lineTo(canvas.width, j); ctx.stroke(); }
+
+            ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = '#ff3366'; ctx.shadowBlur = 10; ctx.shadowColor = '#ff3366';
+            ctx.fill(); ctx.closePath(); ctx.shadowBlur = 0;
+        }
+
+        function update() {
+            if (!isDragging) {
+                ball.vy += ball.gravity; ball.vx *= ball.friction;
+                ball.x += ball.vx; ball.y += ball.vy;
+
+                if (ball.y + ball.radius > canvas.height) { ball.y = canvas.height - ball.radius; ball.vy = -ball.vy * ball.bounce; }
+                if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+                    ball.vx = -ball.vx * ball.bounce;
+                    ball.x = ball.x - ball.radius < 0 ? ball.radius : canvas.width - ball.radius;
+                }
+            }
+            draw();
+            requestAnimationFrame(update);
+        }
+
+        function resetSim() { ball.x = 150; ball.y = 100; ball.vx = 5; ball.vy = 0; }
+
+        canvas.addEventListener('mousedown', (e) => {
+            const r = canvas.getBoundingClientRect();
+            const mx = e.clientX - r.left; const my = e.clientY - r.top;
+            if (Math.hypot(mx - ball.x, my - ball.y) < ball.radius + 15) { isDragging = true; }
+        });
+        canvas.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const r = canvas.getBoundingClientRect();
+                ball.x = e.clientX - r.left; ball.y = e.clientY - r.top;
+                ball.vx = e.movementX * 1.2; ball.vy = e.movementY * 1.2;
+            }
+        });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+        update();
+    </script>
 </body>
 </html>
